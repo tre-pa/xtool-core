@@ -14,7 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 
-public class ApplicationPropertiesRepresentationImpl implements SpringBootApplicationPropertiesRepresentation {
+public class SpringBootApplicationPropertiesRepresentationImpl implements SpringBootApplicationPropertiesRepresentation {
 
 	private Path path;
 
@@ -26,7 +26,7 @@ public class ApplicationPropertiesRepresentationImpl implements SpringBootApplic
 
 	private SpringBootProjectRepresentation bootProject;
 
-	private ApplicationPropertiesRepresentationImpl(SpringBootProjectRepresentation bootProject, Path path) throws ConfigurationException {
+	private SpringBootApplicationPropertiesRepresentationImpl(SpringBootProjectRepresentation bootProject, Path path) throws ConfigurationException {
 		super();
 		this.path = path;
 		this.bootProject = bootProject;
@@ -87,7 +87,7 @@ public class ApplicationPropertiesRepresentationImpl implements SpringBootApplic
 	public static SpringBootApplicationPropertiesRepresentation of(SpringBootProjectRepresentation bootProject, Path path) {
 		if (Files.exists(path)) {
 			try {
-				ApplicationPropertiesRepresentationImpl representation = new ApplicationPropertiesRepresentationImpl(bootProject, path);
+				SpringBootApplicationPropertiesRepresentationImpl representation = new SpringBootApplicationPropertiesRepresentationImpl(bootProject, path);
 				return representation;
 			} catch (ConfigurationException e) {
 				e.printStackTrace();

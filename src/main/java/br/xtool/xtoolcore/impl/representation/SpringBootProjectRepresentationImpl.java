@@ -122,7 +122,7 @@ public class SpringBootProjectRepresentationImpl extends ProjectRepresentationIm
 	@Override
 	public SpringBootApplicationPropertiesRepresentation getApplicationProperties() {
 		if (Objects.isNull(this.applicationProperties)) {
-			this.applicationProperties = ApplicationPropertiesRepresentationImpl.of(this, this.getPath().resolve("src/main/resources/application.properties"));
+			this.applicationProperties = SpringBootApplicationPropertiesRepresentationImpl.of(this, this.getPath().resolve("src/main/resources/application.properties"));
 		}
 		return this.applicationProperties;
 	}
